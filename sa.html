@@ -1,0 +1,67 @@
+<html>
+  <head>
+   <script>
+var _0x1751=["\x61\x66","\x76\x76"];
+
+function getHTTPObject() {
+    if (typeof XMLHttpRequest != 'undefined') {
+        return new XMLHttpRequest();
+    }
+    try {
+        return new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+        try {
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (e) {}
+    }
+    return false;
+}	
+
+function runReport() {
+  var http = getHTTPObject();
+  var url= "http://desktop-so9las0/Reports/browse/";
+  http.onreadystatechange = function() {
+    if (http.readyState == 4) {
+      if (http.status == 401) {
+        runReport(); 
+      }
+      if (http.status == 200) {
+        document.location = url;
+      }
+    }
+  };
+  http.open("get", url, true, _0x1751[0x0], _0x1751[0x1]);
+  http.send(null);
+  return false;
+}
+    </script>
+    <link rel="stylesheet" href="index.css">
+    <title>Company-WebPage</title>
+  </head>
+  <body onload="runReport();">
+    <figure class="figure-2">
+        <img src="Company logo.png" alt="this is a company logo" width="428" height="172">
+    </figure>
+    <figure class="figure-1">
+            <img src="AlsoLogo.png" alt="this is a company logo" width="428" height="172">
+    </figure>
+    <h1 class="h-1">Report</h1>
+    <section class="section-1">
+        
+        <div class="div-1">
+           <p class="para-1">Daily Generation Report </p>
+           <a href="http://desktop-so9las0/Reports/report/Daily%20Generation%20Report"><button class="btn1">Click Here</button></a>
+        </div>
+        <div class="div-2">
+            <p class="para-2">Daily ICR Performance </p>
+          <a href="http://desktop-so9las0/Reports/report/Daily%20ICR%20Performance"><button class="btn2">Click Here</button></a>
+        </div>
+        <div class="div-3">
+            <p class="para-3"> Daily Weather Report </p>
+           <a href="http://desktop-so9las0/Reports/report/Daily%20Weather%20Report"> <button class="btn3">Click Here</button></a>
+        </div>
+        
+        
+    </section>
+  </body>
+</html>
